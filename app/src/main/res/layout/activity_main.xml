@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/simple_service"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Service"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/foreground_service"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Foreground service"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/simple_service"
+        app:layout_constraintTop_toBottomOf="@+id/simple_service" />
+
+    <Button
+        android:id="@+id/intent_service"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Intent service"
+        app:layout_constraintEnd_toEndOf="@+id/simple_service"
+        app:layout_constraintStart_toStartOf="@+id/simple_service"
+        app:layout_constraintTop_toBottomOf="@+id/foreground_service" />
+
+    <Button
+        android:id="@+id/job_sheduler"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Job sheduler"
+        app:layout_constraintEnd_toEndOf="@id/simple_service"
+        app:layout_constraintStart_toStartOf="@+id/simple_service"
+        app:layout_constraintTop_toBottomOf="@+id/intent_service" />
+
+    <Button
+        android:id="@+id/job_intent_service"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Job intent service"
+        app:layout_constraintEnd_toEndOf="@+id/simple_service"
+        app:layout_constraintStart_toStartOf="@+id/simple_service"
+        app:layout_constraintTop_toBottomOf="@+id/job_sheduler" />
+
+    <Button
+        android:id="@+id/alarm_manager"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Alarm manager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/simple_service"
+        app:layout_constraintTop_toBottomOf="@+id/job_intent_service" />
+
+    <Button
+        android:id="@+id/work_manager"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Work manager"
+        app:layout_constraintEnd_toEndOf="@+id/simple_service"
+        app:layout_constraintStart_toStartOf="@+id/simple_service"
+        app:layout_constraintTop_toBottomOf="@+id/alarm_manager" />
+</androidx.constraintlayout.widget.ConstraintLayout>
