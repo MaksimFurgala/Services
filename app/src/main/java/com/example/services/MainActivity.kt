@@ -5,6 +5,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.job.JobInfo
 import android.app.job.JobScheduler
+import android.app.job.JobWorkItem
 import android.content.ComponentName
 import android.content.Context
 import android.graphics.BitmapFactory
@@ -23,6 +24,9 @@ class MainActivity : AppCompatActivity() {
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
+
+    private var page = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -44,11 +48,12 @@ class MainActivity : AppCompatActivity() {
             val componentName = ComponentName(this, MyJobService::class.java)
             val jobInfo = JobInfo.Builder(JOB_ID, componentName)
                 .setRequiresCharging(true)
-                .setPersisted(true)
+                //.setPersisted(true)
 //                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED)
                 .build()
             val jobSheduler = getSystemService(JOB_SCHEDULER_SERVICE) as JobScheduler
-            jobSheduler.schedule(jobInfo)
+            val intent = MyJobService.newIntent(page++)
+            jobSheduler.enqueue(jobInfo, JobWorkItem(intent))
         }
     }
 }
