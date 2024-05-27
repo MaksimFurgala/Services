@@ -41,7 +41,7 @@ class MyIntentService: IntentService(NAME) {
     }
 
     override fun onHandleIntent(p0: Intent?) {
-        log("onStartCommand")
+        log("onHandleIntent")
         for (i in 0 until 5) {
             Thread.sleep(1000)
             log("Timer $i")
@@ -49,7 +49,7 @@ class MyIntentService: IntentService(NAME) {
     }
 
     private fun log(message: String) {
-        Log.d("SERVICE_TAG", "MyForegroundService: $message")
+        Log.d("SERVICE_TAG", "MyIntentService: $message")
     }
 
     private fun createNotificationChannel() {
@@ -63,8 +63,8 @@ class MyIntentService: IntentService(NAME) {
     }
 
     private fun createNotification() = NotificationCompat.Builder(this, CHANNEL_ID)
-        .setContentTitle("MyForegroundServiceTitle")
-        .setContentText("MyForegroundServiceContent")
+        .setContentTitle("MyIntentServiceTitle")
+        .setContentText("MyIntentServiceContent")
         .setSmallIcon(R.drawable.ic_launcher_background)
         .build()
 
